@@ -4,14 +4,18 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f096727-969b-44b8-8e48-db4eab251e16" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../MailClient/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Mailbox/ali.tarquini@gmai.com.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Mailbox/giorgio@mia.mail.com.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Mailbox/prova_54.4@unito.edu.it.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
+    <list default="true" id="5f096727-969b-44b8-8e48-db4eab251e16" name="Changes" comment="Creata classe Email nel server e implementato metodo per validare indirizzo nei file della mailbox">
+      <change afterPath="$PROJECT_DIR$/src/main/java/model/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/Main/MainClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/Main/MainClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/model/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/model/MailClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/model/MailClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Mailbox/ali.tarquini@gmai.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Mailbox/ali.tarquini@gmai.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Email.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/MailServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MailServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,6 +62,7 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.HelloApplication.executor": "Run",
+    "Application.MailServer.executor": "Run",
     "Application.Main.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
@@ -97,11 +102,35 @@
       <workItem from="1737113007887" duration="1381000" />
       <workItem from="1737115090784" duration="54000" />
       <workItem from="1737115392043" duration="27000" />
-      <workItem from="1737119361929" duration="1203000" />
+      <workItem from="1737119361929" duration="14830000" />
     </task>
+    <task id="LOCAL-00001" summary="Creata classe Email nel server e implementato metodo per validare indirizzo nei file della mailbox">
+      <option name="closed" value="true" />
+      <created>1737120865078</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1737120865078</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Creata classe Email nel server e implementato metodo per validare indirizzo nei file della mailbox" />
+    <option name="LAST_COMMIT_MESSAGE" value="Creata classe Email nel server e implementato metodo per validare indirizzo nei file della mailbox" />
   </component>
 </project>

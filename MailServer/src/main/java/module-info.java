@@ -1,8 +1,8 @@
-module Main {
+module model {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens Main to javafx.fxml;
-    exports Main;
+    opens model to javafx.fxml;
+    exports model;
 }

@@ -1,6 +1,7 @@
 package model;
 /*Struttura di un email, gestisce la validazione degli indirizzi*/
 
+import java.time.LocalDateTime;
 import java.util.*;
 import java.util.regex.*;
 
@@ -10,24 +11,27 @@ public class Email{
     private List<String> destinatari;
     private String oggetto;
     private String testo;
-    private Date dataInvio;
+    private LocalDateTime dataInvio;
 
 
     public Email(int id, String mittente, List<String> destinatari, String oggetto, String testo){
         if (!isValidEmail(mittente)) {
             System.out.println("Indirizzo mittente non valido: " + mittente);
+        }else{
+            this.id=id;
+            this.mittente = mittente;
         }
-        this.id=id;
-        this.mittente = mittente;
 
         for (String destinatario : destinatari) {
             if (!isValidEmail(destinatario)) {
                 System.out.println("Indirizzo destinatario non valido: " + destinatario);
+            } else {
+                this.destinatari = destinatari;
+                this.oggetto = oggetto;
+                this.testo = testo;
             }
         }
-        this.destinatari=destinatari;
-        this.oggetto=oggetto;
-        this.testo=testo;
+
     }
 
     public boolean isValidEmail(String email) {
@@ -57,7 +61,7 @@ public class Email{
         return testo;
     }
 
-    public Date getDataInvio() {
+    public LocalDateTime getDataInvio() {
         return dataInvio;
     }
 
