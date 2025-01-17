@@ -1,8 +1,9 @@
-module com.mio.mailclient {
+module model {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens com.mio.mailclient to javafx.fxml;
-    exports com.mio.mailclient;
+    opens model to javafx.fxml;
+    exports model;
 }
+
