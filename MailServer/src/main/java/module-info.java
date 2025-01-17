@@ -1,8 +1,8 @@
-module com.mio.mailserver {
+module Main {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens com.mio.mailserver to javafx.fxml;
-    exports com.mio.mailserver;
+    opens Main to javafx.fxml;
+    exports Main;
 }
