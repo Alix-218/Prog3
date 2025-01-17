@@ -1,8 +1,8 @@
-module com.example.mailserver {
+module com.mio.mailclient {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens com.example.mailserver to javafx.fxml;
-    exports com.example.mailserver;
+    opens com.mio.mailclient to javafx.fxml;
+    exports com.mio.mailclient;
 }

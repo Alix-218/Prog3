@@ -1,8 +1,8 @@
-module com.example.serverprog3 {
+module com.mio.mailserver {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens com.example.serverprog3 to javafx.fxml;
-    exports com.example.serverprog3;
+    opens com.mio.mailserver to javafx.fxml;
+    exports com.mio.mailserver;
 }
