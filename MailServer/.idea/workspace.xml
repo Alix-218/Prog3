@@ -4,18 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f096727-969b-44b8-8e48-db4eab251e16" name="Changes" comment="Creata classe Email nel server e implementato metodo per validare indirizzo nei file della mailbox">
-      <change afterPath="$PROJECT_DIR$/src/main/java/model/FileManager.java" afterDir="false" />
+    <list default="true" id="5f096727-969b-44b8-8e48-db4eab251e16" name="Changes" comment="Sistemata connessione server client, aggiunto FileManager per leggere la mailbox">
       <change beforePath="$PROJECT_DIR$/../MailClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/Main/MainClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/Main/MainClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/model/Email.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/model/MailClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/model/MailClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Mailbox/ali.tarquini@gmai.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Mailbox/ali.tarquini@gmai.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/Main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/FileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/model/MailServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MailServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -102,7 +98,8 @@
       <workItem from="1737113007887" duration="1381000" />
       <workItem from="1737115090784" duration="54000" />
       <workItem from="1737115392043" duration="27000" />
-      <workItem from="1737119361929" duration="14830000" />
+      <workItem from="1737119361929" duration="15887000" />
+      <workItem from="1737288476534" duration="20878000" />
     </task>
     <task id="LOCAL-00001" summary="Creata classe Email nel server e implementato metodo per validare indirizzo nei file della mailbox">
       <option name="closed" value="true" />
@@ -112,7 +109,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737120865078</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Sistemata connessione server client, aggiunto FileManager per leggere la mailbox">
+      <option name="closed" value="true" />
+      <created>1737140165257</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1737140165259</updated>
+    </task>
+    <task id="LOCAL-00003" summary="Sistemata connessione server client, aggiunto FileManager per leggere la mailbox">
+      <option name="closed" value="true" />
+      <created>1737140181835</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1737140181835</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,6 +144,23 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creata classe Email nel server e implementato metodo per validare indirizzo nei file della mailbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creata classe Email nel server e implementato metodo per validare indirizzo nei file della mailbox" />
+    <MESSAGE value="Sistemata connessione server client, aggiunto FileManager per leggere la mailbox" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sistemata connessione server client, aggiunto FileManager per leggere la mailbox" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/MailServer.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/model/MailServer.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

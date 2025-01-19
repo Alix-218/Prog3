@@ -5,26 +5,28 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.ArrayList;
+import java.io.Serializable;
 
 /* Come client, ma qui serve per gestire i messaggi sul server (mailbox)*/
-public class Email {
+public class Email implements Serializable {
+    private static final long serialVersionUID = 1L;
 
     private int id;
-    private String mittente;
-    private ArrayList<String> destinatari;
-    private String oggetto;
-    private String testo;
-    private LocalDateTime dataInvio;
+    private String sender;
+    private ArrayList<String> recipients;
+    private String topic;
+    private String text;
+    private LocalDateTime sentDate;
 
     public Email() {
     }
 
-    public Email(int id, String mittente, ArrayList<String> destinatari, String oggetto, String testo){
+    public Email(int id, String sender, ArrayList<String> recipients, String topic, String text){
         this.id=id;
-        this.mittente = mittente;
-        this.destinatari=destinatari;
-        this.oggetto=oggetto;
-        this.testo=testo;
+        this.sender = sender;
+        this.recipients=recipients;
+        this.topic=topic;
+        this.text=text;
     }
 
 
@@ -32,59 +34,59 @@ public class Email {
         return id;
     }
 
-    public String getMittente() {
-        return mittente;
+    public String getSender() {
+        return sender;
     }
 
-    public ArrayList<String> getDestinatari() {
-        return destinatari;
+    public ArrayList<String> getRecipients() {
+        return recipients;
     }
 
-    public String getOggetto() {
-        return oggetto;
+    public String getTopic() {
+        return topic;
     }
 
-    public String getTesto() {
-        return testo;
+    public String getText() {
+        return text;
     }
 
-    public LocalDateTime getDataInvio() {
-        return dataInvio;
+    public LocalDateTime getSentDate() {
+        return sentDate;
     }
 
     public void setId(int id) {
         this.id = id;
     }
 
-    public void setMittente(String mittente) {
-        this.mittente = mittente;
+    public void setSender(String sender) {
+        this.sender = sender;
     }
 
-    public void setDestinatari(ArrayList<String> destinatari) {
-        this.destinatari = destinatari;
+    public void setRecipients(ArrayList<String> recipients) {
+        this.recipients = recipients;
     }
 
-    public void setOggetto(String oggetto) {
-        this.oggetto = oggetto;
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
-    public void setTesto(String testo) {
-        this.testo = testo;
+    public void setText(String text) {
+        this.text = text;
     }
 
-    public void setDataInvio(LocalDateTime dataInvio) {
-        this.dataInvio = dataInvio;
+    public void setSentDate(LocalDateTime sentDate) {
+        this.sentDate = sentDate;
     }
 
     @Override
     public String toString() {
         return "Email{" +
                 "id=" + id +
-                ", mittente='" + mittente + '\'' +
-                ", destinatari=" + destinatari +
-                ", oggetto='" + oggetto + '\'' +
-                ", testo='" + testo + '\'' +
-                ", dataInvio=" + dataInvio +
+                ", sender='" + sender + '\'' +
+                ", recipients=" + recipients +
+                ", topic='" + topic + '\'' +
+                ", text='" + text + '\'' +
+                ", sentDate=" + sentDate +
                 '}';
     }
 }

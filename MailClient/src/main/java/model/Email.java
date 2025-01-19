@@ -1,68 +1,80 @@
 package model;
 /*Struttura di un email, gestisce la validazione degli indirizzi*/
 
+import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.*;
 import java.util.regex.*;
 
-public class Email{
+public class Email implements Serializable{
+    private static final long serialVersionUID = 1L;
     private int id;
-    private String mittente;
-    private List<String> destinatari;
-    private String oggetto;
-    private String testo;
-    private LocalDateTime dataInvio;
+    private String sender;
+    private ArrayList<String> recipients;
+    private String topic;
+    private String text;
+    private LocalDateTime sentDate;
 
 
-    public Email(int id, String mittente, List<String> destinatari, String oggetto, String testo){
-        if (!isValidEmail(mittente)) {
-            System.out.println("Indirizzo mittente non valido: " + mittente);
-        }else{
-            this.id=id;
-            this.mittente = mittente;
-        }
+    public Email(int id, String sender, ArrayList<String> recipients, String topic, String text) {
+        this.id = id;
+        this.sender = sender;
+        this.recipients = recipients;
+        this.topic = topic;
+        this.text = text;
 
-        for (String destinatario : destinatari) {
-            if (!isValidEmail(destinatario)) {
-                System.out.println("Indirizzo destinatario non valido: " + destinatario);
-            } else {
-                this.destinatari = destinatari;
-                this.oggetto = oggetto;
-                this.testo = testo;
-            }
-        }
+
 
     }
 
-    public boolean isValidEmail(String email) {
-        String regex = "^[a-zA-Z0-9_+&-]+(?:\\.[a-zA-Z0-9_+&-]+)*@[a-zA-Z]+(?:\\.[a-zA-Z]+)*(?:\\.(com|net|org|it))+$";
-        Pattern pattern = Pattern.compile(regex);
-        Matcher matcher = pattern.matcher(email);
-        return matcher.matches();
+    public Email() {
     }
+
+
 
     public int getId() {
         return id;
     }
 
-    public String getMittente() {
-        return mittente;
+    public String getSender() {
+        return sender;
     }
 
-    public List<String> getDestinatari() {
-        return destinatari;
+    public ArrayList<String> getRecipients() {
+        return recipients;
     }
 
-    public String getOggetto() {
-        return oggetto;
+    public String getTopic() {
+        return topic;
     }
 
-    public String getTesto() {
-        return testo;
+    public String getText() {
+        return text;
     }
 
-    public LocalDateTime getDataInvio() {
-        return dataInvio;
+    public LocalDateTime getSentDate() {
+        return sentDate;
     }
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setSender(String sender) {
+        this.sender = sender;
+    }
+
+    public void setRecipients(ArrayList<String> recipients) {
+        this.recipients = recipients;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
+    }
+
+    public void setText(String text) {
+        this.text = text;
+    }
 }
+
+    
