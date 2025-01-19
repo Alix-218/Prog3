@@ -31,21 +31,26 @@ public class MailServer {
                 //Controllo che l'indirizzo mail esista
                 String response ="";
                 String sender = reader.readLine();
+                //Finché non inserisco un indirizzo esistente continuo ad aspettare
+                //Dovrei chiudere la connessione se non esiste??
                 while(!emailExists(sender)){
                     response = "Indirizzo email inesistente";
                     writer.println(response);
                     sender = reader.readLine();
                 }
 
-
+                //Se l'indirizzo esiste posso recuperare la mailbox
+                //oppure ricevere la mail e scriverla nella mailbox
                 if(emailExists(sender)) {
                     response = "L'utente è autenticato";
                     writer.println(response);
                     /*for(Email e : FileManager.readEmailFromMailbox(email)){
                         System.out.println(e.toString());
                     }*/
-                    //Dopo il controllo sul mittente invio la mail
+                    //Dopo il controllo sul mittente invio la mail, oggetto Email serializzato
                     Email e = (Email) objectReader.readObject();
+                    //Uso validRecipients per tenermi solo gli indirizzi destinatario esistenti e scartare gli altri
+                    //Dovrei non mandare niente? o almeno mandarla a quelli validi come sto facendo?
                     ArrayList<String> validRecipients = new ArrayList<>();
                     for (String recipient : e.getRecipients()) {
                         if (emailExists(recipient)) {
@@ -61,6 +66,7 @@ public class MailServer {
                     if (validRecipients.isEmpty()) {
                         System.out.println("Non hai inserito destinatari validi");
                     } else {
+                        //mando solo quelli esistenti di destinatari
                         FileManager.writeEmailToMailbox(e);
                     }
                 }

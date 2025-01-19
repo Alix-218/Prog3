@@ -4,15 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4c12110e-b329-42d5-a6a4-3be9386fdbe5" name="Changes" comment="Creata classe Email nel client con regex testata">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Email.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MailClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MailClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailServer/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MailServer/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailServer/src/main/java/model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailServer/src/main/java/model/Email.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailServer/src/main/java/model/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailServer/src/main/java/model/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailServer/src/main/java/model/MailServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailServer/src/main/java/model/MailServer.java" afterDir="false" />
-    </list>
+    <list default="true" id="4c12110e-b329-42d5-a6a4-3be9386fdbe5" name="Changes" comment="Aggiunti metodi per controllo indirizzi destinatari e per creare la mail e inviarla, aggiunti commenti" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -92,7 +84,7 @@
       <updated>1737115217098</updated>
       <workItem from="1737115218028" duration="170000" />
       <workItem from="1737115422768" duration="15137000" />
-      <workItem from="1737288437203" duration="21394000" />
+      <workItem from="1737288437203" duration="22119000" />
     </task>
     <task id="LOCAL-00001" summary="Creata classe Email nel client con regex testata">
       <option name="closed" value="true" />
@@ -110,7 +102,23 @@
       <option name="project" value="LOCAL" />
       <updated>1737140217712</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Aggiunti metodi per controllo indirizzi destinatari e per creare la mail e inviarla">
+      <option name="closed" value="true" />
+      <created>1737313748528</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1737313748528</updated>
+    </task>
+    <task id="LOCAL-00004" summary="Aggiunti metodi per controllo indirizzi destinatari e per creare la mail e inviarla, aggiunti commenti">
+      <option name="closed" value="true" />
+      <created>1737313961213</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1737313961213</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -129,14 +137,16 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creata classe Email nel client con regex testata" />
-    <option name="LAST_COMMIT_MESSAGE" value="Creata classe Email nel client con regex testata" />
+    <MESSAGE value="Aggiunti metodi per controllo indirizzi destinatari e per creare la mail e inviarla" />
+    <MESSAGE value="Aggiunti metodi per controllo indirizzi destinatari e per creare la mail e inviarla, aggiunti commenti" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunti metodi per controllo indirizzi destinatari e per creare la mail e inviarla, aggiunti commenti" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/java/model/MailClient.java</url>
-          <line>33</line>
+          <line>34</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
       </breakpoints>

@@ -28,10 +28,10 @@ public class FileManager {
         return mailbox;
     }
 
-//TODO scrivere su file della mailbox
 
     public static void writeEmailToMailbox(Email email) throws IOException {
         String dataEmail = " ";
+        //Scrivo a ogni mailbox destinataria
         for(String recipient : email.getRecipients()) {
             FileWriter writeEmail = new FileWriter("src/main/Mailbox/" + recipient + ".txt", true);
             BufferedWriter writer = new BufferedWriter(writeEmail);
