@@ -12,7 +12,7 @@ public class MailClient {
     private static final int SERVER_PORT = 12345;
 
     public static void main(String[] args) throws IOException {
-
+        //controlliamo il mittente sintatticamente prima di aprire la connessione
         String sender = checkSender();
 
         try (Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT)) {
@@ -31,6 +31,7 @@ public class MailClient {
             //Leggo il risultato del server
             String serverMessage = reader.readLine();
             System.out.println(serverMessage);
+            //Se il mittente non esiste lo inserisco di nuovo e lo ricontrollo sintatticamnete
             while(serverMessage.equals("Indirizzo email inesistente")){
                 sender  = checkSender();
                 writer.println(sender);
@@ -44,13 +45,10 @@ public class MailClient {
             objectWriter.writeObject(e);
             objectWriter.flush();
             System.out.println("Email inviata al server");
-            //Leggo il risultato del server
+            //Leggo il risultato del server più volte avendo più destinatari
             while((serverMessage = reader.readLine())!= null){
                 System.out.println(serverMessage);
             }
-
-
-
 
 
         } catch (IOException e) {
@@ -60,6 +58,7 @@ public class MailClient {
 
 
     }
+
     public static boolean isValidEmail(String email) {
         String regex = "^[a-zA-Z0-9_+&-]+(?:\\.[a-zA-Z0-9_+&-]+)*@[a-zA-Z]+(?:\\.[a-zA-Z]+)*(?:\\.(com|net|org|it))+$";
         Pattern pattern = Pattern.compile(regex);
@@ -70,6 +69,7 @@ public class MailClient {
         return matcher.matches();
     }
 
+    //controllo per mittente
     public static String checkSender() throws IOException {
         String sender = " ";
         do{
@@ -79,7 +79,7 @@ public class MailClient {
         }while(!isValidEmail(sender));
         return sender;
     }
-
+    //controllo per destinatari
     public static ArrayList<String> checkRecipients() throws IOException {
         ArrayList<String> recipients = new ArrayList<>();
         String recipient = "";
