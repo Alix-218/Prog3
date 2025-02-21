@@ -4,14 +4,26 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f096727-969b-44b8-8e48-db4eab251e16" name="Changes" comment="Sistemata connessione server client, aggiunto FileManager per leggere la mailbox">
+    <list default="true" id="5f096727-969b-44b8-8e48-db4eab251e16" name="Changes" comment="Aggiunti commenti">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/ServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/RunnableServer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/ServerController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/FileManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MailClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/model/Email.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/model/MailClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/model/MailClient.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/Email.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MailServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/model/MailServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Mailbox/[giorgio@mia.mail.com].txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Mailbox/giorgio@mia.mail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Mailbox/giorgio@mia.mail.com.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ServerController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/FileManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/MailServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/MailServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/model/Mailbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/Mailbox.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mio/mailserver/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/mio/mailserver/serverGUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,24 +72,67 @@
     "Application.HelloApplication.executor": "Run",
     "Application.MailServer.executor": "Run",
     "Application.Main.executor": "Run",
+    "Application.ServerApplication.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/alicetarquini/Desktop/Prog3/MailServer",
+    "last_opened_file_path": "/Users/alicetarquini/Desktop/Prog3/MailServer/src/main/java",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "run.code.analysis.last.selected.profile": "pProject Default",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/java" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
       <recent name="$PROJECT_DIR$/src/main/File" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.mio.mailserver" />
+      <recent name="" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.ServerApplication">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.mio.mailserver.Main" />
+      <module name="MailServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ServerApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.mio.mailserver.ServerApplication" />
+      <module name="MailServer" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.mio.mailserver.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ServerApplication" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
@@ -99,7 +154,10 @@
       <workItem from="1737115090784" duration="54000" />
       <workItem from="1737115392043" duration="27000" />
       <workItem from="1737119361929" duration="15887000" />
-      <workItem from="1737288476534" duration="20878000" />
+      <workItem from="1737288476534" duration="21959000" />
+      <workItem from="1737319094679" duration="1907000" />
+      <workItem from="1737365334334" duration="1140000" />
+      <workItem from="1740159014885" duration="8245000" />
     </task>
     <task id="LOCAL-00001" summary="Creata classe Email nel server e implementato metodo per validare indirizzo nei file della mailbox">
       <option name="closed" value="true" />
@@ -125,7 +183,31 @@
       <option name="project" value="LOCAL" />
       <updated>1737140181835</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Implementato nel FileManager metodo per scrivere una mail nella mailbox e implementato l'invio della mail da client a server">
+      <option name="closed" value="true" />
+      <created>1737313663447</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1737313663447</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Implementato nel FileManager metodo per scrivere una mail nella mailbox e implementato l'invio della mail da client a server">
+      <option name="closed" value="true" />
+      <created>1737313669425</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1737313669425</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Aggiunti commenti">
+      <option name="closed" value="true" />
+      <created>1737314292237</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1737314292237</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -145,20 +227,17 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Creata classe Email nel server e implementato metodo per validare indirizzo nei file della mailbox" />
     <MESSAGE value="Sistemata connessione server client, aggiunto FileManager per leggere la mailbox" />
-    <option name="LAST_COMMIT_MESSAGE" value="Sistemata connessione server client, aggiunto FileManager per leggere la mailbox" />
+    <MESSAGE value="Implementato nel FileManager metodo per scrivere una mail nella mailbox e implementato l'invio della mail da client a server" />
+    <MESSAGE value="Aggiunti commenti" />
+    <option name="LAST_COMMIT_MESSAGE" value="Aggiunti commenti" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/MailServer.java</url>
-          <line>39</line>
-          <option name="timeStamp" value="5" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/model/MailServer.java</url>
-          <line>31</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/ServerController.java</url>
+          <line>47</line>
+          <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

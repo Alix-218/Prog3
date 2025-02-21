@@ -4,7 +4,6 @@ package model;
 import java.io.Serializable;
 import java.time.LocalDateTime;
 import java.util.*;
-import java.util.regex.*;
 
 public class Email implements Serializable{
     private static final long serialVersionUID = 1L;
@@ -16,12 +15,13 @@ public class Email implements Serializable{
     private LocalDateTime sentDate;
 
 
-    public Email(int id, String sender, ArrayList<String> recipients, String topic, String text) {
+    public Email(int id, String sender, ArrayList<String> recipients, String topic, String text, LocalDateTime sentDate) {
         this.id = id;
         this.sender = sender;
         this.recipients = recipients;
         this.topic = topic;
         this.text = text;
+        this.sentDate = sentDate;
 
 
 
@@ -74,6 +74,10 @@ public class Email implements Serializable{
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public void setSentDate(LocalDateTime sentDate) {
+        this.sentDate = sentDate;
     }
 }
 

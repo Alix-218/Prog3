@@ -1,10 +1,9 @@
-package model;
+package com.mio.mailserver.model;
 
-import java.time.LocalDate;
+
 import java.time.LocalDateTime;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.ArrayList;
+
 import java.io.Serializable;
 
 /* Come client, ma qui serve per gestire i messaggi sul server (mailbox)*/

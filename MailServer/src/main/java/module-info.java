@@ -1,8 +1,11 @@
-module model {
+module com.mio.mailserver {
     requires javafx.controls;
     requires javafx.fxml;
 
 
-    opens model to javafx.fxml;
-    exports model;
+    opens com.mio.mailserver to javafx.graphics;
+    exports com.mio.mailserver;
+
+    opens com.mio.mailserver.controller to javafx.fxml;
+    exports com.mio.mailserver.controller;
 }

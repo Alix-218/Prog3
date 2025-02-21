@@ -2,6 +2,7 @@ package model;
 
 import java.io.*;
 import java.net.Socket;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -15,16 +16,15 @@ public class MailClient {
         //controlliamo il mittente sintatticamente prima di aprire la connessione
         String sender = checkSender();
 
-        try (Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT)) {
-            System.out.println("Connesso al server");
-
+        try (Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
             //Ottiene gli stream di Input e Output per la comunicazione con il serve
             InputStream input = socket.getInputStream();
             OutputStream output = socket.getOutputStream();
-
             BufferedReader reader = new BufferedReader(new InputStreamReader(input));
             PrintWriter writer = new PrintWriter(output, true);
-            ObjectOutputStream objectWriter = new ObjectOutputStream(output);
+            ObjectOutputStream objectWriter = new ObjectOutputStream(output)){
+
+            System.out.println("Connesso al server");
 
             //Invio la mail mittente per l'autenticazione al server
             writer.println(sender);
@@ -118,6 +118,7 @@ public class MailClient {
         System.out.println("Inserisci testo: ");
         String text = userInput.readLine();
         e.setText(text);
+        e.setSentDate(LocalDateTime.now());
         return e;
     }
 

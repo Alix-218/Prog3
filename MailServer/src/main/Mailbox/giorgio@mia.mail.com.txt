@@ -1,3 +1,5 @@
 0, giorgio@mia.mail.com, ali.tarquini@gmai.com; giorgio@mia.mail.com, Ti prego, Funziona, null
 0, ali.tarquini@gmai.com, giorgio@mia.mail.com, Arrivvaaaa, Dai, null
 0, giorgio@mia.mail.com, ali.tarquini@gmai.com; giorgio@mia.mail.com, Ultima prova, Mi sono rotta il cazzo, null
+0, ali.tarquini@gmai.com, giorgio@mia.mail.com, Ciaoooooo, Buongirono ancora qui, null
+0, ali.tarquini@gmai.com, giorgio@mia.mail.com, Con data, SI spera, 2025-01-20T10:36:21.592568

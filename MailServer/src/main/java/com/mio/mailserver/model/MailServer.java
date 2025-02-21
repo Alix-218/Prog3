@@ -1,15 +1,10 @@
-package model;
-
-import java.io.*;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.util.ArrayList;
+package com.mio.mailserver.model;
 
 /*Gestisce l'autenticazione e connessione e invio di messaggi*/
 public class MailServer {
     private static final int PORT = 12345;
 
-    public static void main(String[] args) {
+    /*public static void main(String[] args) {
 
         try(ServerSocket serverSocket = new ServerSocket(PORT)){
             //il server è pronto ad accettare la connessione del client
@@ -46,9 +41,12 @@ public class MailServer {
                     writer.println(response);
                     /*for(Email e : FileManager.readEmailFromMailbox(email)){
                         System.out.println(e.toString());
-                    }*/
+                    }
                     //Dopo il controllo sul mittente invio la mail, oggetto Email serializzato
                     Email e = (Email) objectReader.readObject();
+                    if(e==null){
+                        writer.println("Errore: email non ricevuta correttamente");
+                    }
                     //Uso validRecipients per tenermi solo gli indirizzi destinatario esistenti e scartare gli altri
                     //Dovrei non mandare niente? o almeno mandarla a quelli validi come sto facendo?
                     ArrayList<String> validRecipients = new ArrayList<>();
@@ -62,11 +60,13 @@ public class MailServer {
                             writer.println(response);
                         }
                     }
-                    e.setRecipients(validRecipients);
+
                     if (validRecipients.isEmpty()) {
                         System.out.println("Non hai inserito destinatari validi");
+                        //chiudere la connessione
                     } else {
                         //mando solo quelli esistenti di destinatari
+                        e.setRecipients(validRecipients);
                         FileManager.writeEmailToMailbox(e);
                     }
                 }
@@ -85,5 +85,5 @@ public class MailServer {
     public static boolean emailExists(String email){
         File file = new File ("src/main/Mailbox/" + email + ".txt");
         return file.exists();
-    }
+    }*/
 }
