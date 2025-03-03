@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox alignment="CENTER" prefHeight="303.0" prefWidth="396.0" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/17.0.12" fx:controller="com.mio.mailclient.controller.ClientController">
+  <padding>
+    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+  </padding>
+   <Label prefHeight="17.0" prefWidth="376.0" text="CIAO">
+      <font>
+         <Font name="Helvetica" size="13.0" />
+      </font>
+   </Label>
+
+  <TextField fx:id="username" />
+  <Button fx:id="btnLogin"  text="Login" />
+  <Label fx:id="messageError" text="Non è sintatticamente corretto" visible="false"/>
+</VBox>
