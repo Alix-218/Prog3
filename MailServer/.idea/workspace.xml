@@ -4,26 +4,28 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5f096727-969b-44b8-8e48-db4eab251e16" name="Changes" comment="Aggiunti commenti">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/ServerApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/RunnableServer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/ServerController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/FileManager.java" afterDir="false" />
+    <list default="true" id="5f096727-969b-44b8-8e48-db4eab251e16" name="Changes" comment="Iniziato ad aggiungere i thread, problemi con la ThreadPool nel momento della chiusura in ServerController">
+      <change afterPath="$PROJECT_DIR$/../MailClient/src/main/java/com/mio/mailclient/controller/LoginController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MailClient/src/main/java/com/mio/mailclient/model/Request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MailClient/src/main/java/com/mio/mailclient/model/Response.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../MailClient/src/main/resources/com/mio/mailclient/Client.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/Request.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/Response.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MailClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/model/Email.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/model/MailClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/model/MailClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/Main/MainClient.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/com/mio/mailclient/controller/ClientController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/com/mio/mailclient/model/Email.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/model/MailClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/com/mio/mailclient/model/MailClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/resources/com/mio/mailclient/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/resources/com/mio/mailclient/Login.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Mailbox/[giorgio@mia.mail.com].txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Mailbox/giorgio@mia.mail.com.txt" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Mailbox/giorgio@mia.mail.com.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/Main/Main.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/controller/ServerController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/Email.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/FileManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/MailServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/MailServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/model/Mailbox.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/Mailbox.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mio/mailserver/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/mio/mailserver/serverGUI.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/RunnableServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/RunnableServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/ServerController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/FileManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/MailServer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/Mailbox.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mio/mailserver/serverGUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/mio/mailserver/serverGUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,26 +69,26 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.HelloApplication.executor": "Run",
-    "Application.MailServer.executor": "Run",
-    "Application.Main.executor": "Run",
-    "Application.ServerApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/Users/alicetarquini/Desktop/Prog3/MailServer/src/main/java",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MailServer.executor&quot;: &quot;Run&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;Application.ServerApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/Users/alicetarquini/Desktop/Prog3/MailServer&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/java" />
@@ -157,7 +159,10 @@
       <workItem from="1737288476534" duration="21959000" />
       <workItem from="1737319094679" duration="1907000" />
       <workItem from="1737365334334" duration="1140000" />
-      <workItem from="1740159014885" duration="8245000" />
+      <workItem from="1740159014885" duration="9387000" />
+      <workItem from="1740591519142" duration="7735000" />
+      <workItem from="1741025115781" duration="6320000" />
+      <workItem from="1741034002763" duration="2052000" />
     </task>
     <task id="LOCAL-00001" summary="Creata classe Email nel server e implementato metodo per validare indirizzo nei file della mailbox">
       <option name="closed" value="true" />
@@ -207,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1737314292237</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Iniziato ad aggiungere i thread, problemi con la ThreadPool nel momento della chiusura in ServerController">
+      <option name="closed" value="true" />
+      <created>1740168035884</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1740168035884</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -229,17 +242,7 @@
     <MESSAGE value="Sistemata connessione server client, aggiunto FileManager per leggere la mailbox" />
     <MESSAGE value="Implementato nel FileManager metodo per scrivere una mail nella mailbox e implementato l'invio della mail da client a server" />
     <MESSAGE value="Aggiunti commenti" />
-    <option name="LAST_COMMIT_MESSAGE" value="Aggiunti commenti" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/ServerController.java</url>
-          <line>47</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <MESSAGE value="Iniziato ad aggiungere i thread, problemi con la ThreadPool nel momento della chiusura in ServerController" />
+    <option name="LAST_COMMIT_MESSAGE" value="Iniziato ad aggiungere i thread, problemi con la ThreadPool nel momento della chiusura in ServerController" />
   </component>
 </project>

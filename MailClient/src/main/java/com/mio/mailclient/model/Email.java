@@ -1,4 +1,4 @@
-package model;
+package com.mio.mailclient.model;
 /*Struttura di un email, gestisce la validazione degli indirizzi*/
 
 import java.io.Serializable;

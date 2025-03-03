@@ -7,6 +7,7 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="ServerProg3" />
+        <module name="MailClient" />
       </profile>
     </annotationProcessing>
   </component>

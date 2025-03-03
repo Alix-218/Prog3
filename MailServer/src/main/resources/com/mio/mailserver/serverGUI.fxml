@@ -5,6 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextArea?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="com.mio.mailserver.controller.ServerController">
   <padding>
@@ -12,6 +13,8 @@
   </padding>
 
   <Label fx:id="welcomeText"/>
-  <Button text="Start" onMouseClicked="#startServer"/>
-  <Button text="Stop" onMouseClicked="#stopServer"/>
+  <Button fx:id="btnStart" text="Start" onMouseClicked="#startServer" prefHeight="40" prefWidth="80"/>
+  <Button fx:id="btnStop" text="Stop" onMouseClicked="#stopServer" prefHeight="40" prefWidth="80"/>
+
+  <TextArea fx:id="logArea" prefHeight="300" prefWidth="600"/>
 </VBox>

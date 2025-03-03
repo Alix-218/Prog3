@@ -8,7 +8,10 @@ package com.mio.mailserver.controller;
  */
 
 
+import com.mio.mailserver.model.Server;
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
+import javafx.scene.control.TextArea;
 
 import java.io.IOException;
 import java.net.ServerSocket;
@@ -23,7 +26,24 @@ public class ServerController {
     private static final int NUM_THREAD = 3;
     private ServerSocket serverSocket;
     private ExecutorService exec;
-    boolean flag = true;
+    private Server server;
+
+    @FXML
+    private Button btnStart;
+    @FXML
+    private Button btnStop;
+    @FXML
+    private TextArea logArea;
+
+    public void initialize() throws IOException {
+        this.server = new Server();
+        startServer();
+        btnStart.setDisable(true);
+        btnStop.setDisable(false);
+    }
+
+
+
 
     @FXML
     public void startServer() throws IOException {
@@ -36,36 +56,41 @@ public class ServerController {
         }
 
         exec = Executors.newFixedThreadPool(NUM_THREAD);
+        server.setRunning(true);
+        btnStart.setDisable(true);
+        btnStop.setDisable(false);
 
         new Thread(()->{
-            while(flag){
+
+            while(server.isRunning()){
                 System.out.println("Server in ascolto");
 
                 Socket clientSocket = null;
                 try {
                     clientSocket = serverSocket.accept();
+                    RunnableServer runnableServer = new RunnableServer(clientSocket);
+                    exec.execute(runnableServer);
+                    System.out.println("client connesso" + clientSocket.getInetAddress());
                 } catch (IOException e) {
                     System.out.println("server chiuso");;
                 }
-                RunnableServer runnableServer = new RunnableServer();
-                exec.execute(runnableServer);
 
-                System.out.println("client connesso" + clientSocket.getInetAddress());
             }
         }).start();
     }
 
     @FXML
     public void stopServer() throws IOException, InterruptedException {
-        flag = false;
+        server.setRunning(false);
         exec.shutdown();
-
-        exec.awaitTermination(5, TimeUnit.SECONDS);
 
         try {
             serverSocket.close();
         }catch (IOException e){
             System.out.println("abbiamo un problema");
         }
+
+        btnStart.setDisable(false);
+        btnStop.setDisable(true);
     }
 }

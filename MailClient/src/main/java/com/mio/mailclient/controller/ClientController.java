@@ -1,4 +1,4 @@
-package controller;
+package com.mio.mailclient.controller;
 /*Gestisce la logica di interazione con la view.
 * Esegue operazione come la connessione al server,
 * la gestione dei messaggi in arrivo

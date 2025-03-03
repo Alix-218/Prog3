@@ -1,4 +1,4 @@
-package model;
+package com.mio.mailclient.model;
 
 import java.io.*;
 import java.net.Socket;
