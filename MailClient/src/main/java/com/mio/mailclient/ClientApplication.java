@@ -17,8 +17,8 @@ public class ClientApplication extends Application {
         //stage.setOnCloseRequest();
 
         stage.show();
-        LoginController loginController = loader.getController();
-        loginController.setLoginStage(stage);
+
+
 
     }
 

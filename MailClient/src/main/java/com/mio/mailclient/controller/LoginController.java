@@ -32,9 +32,7 @@ public class LoginController {
     private ObjectInputStream objectReader;
     private ObjectOutputStream objectWriter;
 
-    public void setLoginStage(Stage loginStage){
-        this.loginStage=loginStage;
-    }
+
 
 
 
@@ -75,7 +73,6 @@ public class LoginController {
 
     @FXML
     private void newStage() throws IOException {
-        loginStage.hide();
         Stage stage = (Stage)btnLogin.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mio/mailclient/Client.fxml"));
         Parent root = loader.load();

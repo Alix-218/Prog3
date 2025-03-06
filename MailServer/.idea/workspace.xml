@@ -5,27 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5f096727-969b-44b8-8e48-db4eab251e16" name="Changes" comment="Iniziato ad aggiungere i thread, problemi con la ThreadPool nel momento della chiusura in ServerController">
-      <change afterPath="$PROJECT_DIR$/../MailClient/src/main/java/com/mio/mailclient/controller/LoginController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MailClient/src/main/java/com/mio/mailclient/model/Request.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MailClient/src/main/java/com/mio/mailclient/model/Response.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../MailClient/src/main/resources/com/mio/mailclient/Client.fxml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/Request.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/Response.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../MailClient/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/Main/MainClient.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/controller/ClientController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/com/mio/mailclient/controller/ClientController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/model/Email.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/com/mio/mailclient/model/Email.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/model/MailClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/com/mio/mailclient/model/MailClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/java/module-info.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../MailClient/src/main/resources/com/mio/mailclient/hello-view.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/../MailClient/src/main/resources/com/mio/mailclient/Login.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/RunnableServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/RunnableServer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/ServerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/controller/ServerController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/FileManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/FileManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/MailServer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/mio/mailserver/model/Mailbox.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/com/mio/mailserver/serverGUI.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/com/mio/mailserver/serverGUI.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -163,6 +143,7 @@
       <workItem from="1740591519142" duration="7735000" />
       <workItem from="1741025115781" duration="6320000" />
       <workItem from="1741034002763" duration="2052000" />
+      <workItem from="1741040708268" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="Creata classe Email nel server e implementato metodo per validare indirizzo nei file della mailbox">
       <option name="closed" value="true" />
