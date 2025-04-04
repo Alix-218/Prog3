@@ -1,0 +1,5 @@
+.list-cell {
+    -fx-border-color: lightgray;
+    -fx-border-width: 0 0 1px 0; /* Linea solo in basso */
+    -fx-padding: 5px;
+}

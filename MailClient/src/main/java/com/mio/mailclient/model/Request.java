@@ -13,6 +13,17 @@ public class Request implements Serializable {
         this.operation=operation;
     }
 
+    public Request(Email email, String operation){
+        this.email=email;
+        this.operation=operation;
+    }
+
+    public Request(String sender, int id, String operation){
+        this.sender=sender;
+        this.id=id;
+        this.operation=operation;
+    }
+
     public int getId(){
         return id;
     }

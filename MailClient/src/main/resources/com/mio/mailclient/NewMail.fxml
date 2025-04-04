@@ -4,14 +4,38 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<VBox alignment="CENTER" prefHeight="303.0" prefWidth="396.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mio.mailclient.controller.ClientController">
+<VBox alignment="CENTER" prefHeight="334.0" prefWidth="447.0" spacing="20.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.mio.mailclient.controller.NewMailController">
     <padding>
         <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
     </padding>
-    <TextField fx:id="recipientsField"/>
-    <TextField fx:id="topicField"/>
-    <TextArea fx:id="textArea" />
-    <Button fx:id="btnSendMail" prefHeight="82.0" prefWidth="212.0" text="Invia Mail" onAction="#onSendMailButtonClick" />
 
+    <!-- Etichetta per il destinatario -->
+    <HBox spacing="10">
+        <Label text="Destinatario:" />
+        <TextField fx:id="recipientsField" prefHeight="16.0" prefWidth="344.0" promptText="A:" />
+    </HBox>
 
+    <!-- Etichetta per l'errore -->
+    <Label fx:id="msgErr" prefHeight="4.0" prefWidth="247.0" text="Uno o più indirizzi non sintatticamente corretti" visible="false" />
+
+    <!-- Etichetta per il mittente -->
+    <HBox spacing="10">
+        <Label text="Mittente:" />
+        <TextField fx:id="loggedSender" editable="false" layoutX="30.0" layoutY="113.0"/>
+    </HBox>
+
+    <!-- Etichetta per l'oggetto -->
+    <HBox spacing="10">
+        <Label text="Oggetto:" />
+        <TextField fx:id="topicField" promptText="Oggetto:" />
+    </HBox>
+
+    <!-- Etichetta per il corpo della mail -->
+    <HBox spacing="10">
+        <Label text="Corpo del messaggio:" />
+        <TextArea fx:id="textArea" />
+    </HBox>
+
+    <!-- Bottone per inviare la mail -->
+    <Button fx:id="btnSendMail" onAction="#onSendMailButtonClick" prefHeight="82.0" prefWidth="212.0" text="Invia Mail" />
 </VBox>

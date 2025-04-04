@@ -1,8 +1,10 @@
 package com.mio.mailclient.controller;
 
+import com.mio.mailclient.model.Email;
 import com.mio.mailclient.model.Request;
 
 import com.mio.mailclient.model.Response;
+import com.mio.mailclient.model.User;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,6 +18,7 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
+import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -26,7 +29,7 @@ public class LoginController {
     private Label messageError;
     @FXML
     private Button btnLogin;
-    private Stage loginStage;
+
     private static final String SERVER_ADDRESS = "localhost";
     private static final int SERVER_PORT = 12345;
     private ObjectInputStream objectReader;
@@ -48,8 +51,10 @@ public class LoginController {
             objectWriter.writeObject(createRequest(email,"AUTH"));
             Response response = (Response)objectReader.readObject();
             if(response.getMessage().equals("OK")){
-                newStage();
-
+                newStage(response.getMailBox());
+            }else{
+                messageError.setText("Utente inesistente");
+                messageError.setVisible(true);
             }
 
         }
@@ -72,10 +77,13 @@ public class LoginController {
     }
 
     @FXML
-    private void newStage() throws IOException {
+    private void newStage(ArrayList<Email> mailbox) throws IOException {
         Stage stage = (Stage)btnLogin.getScene().getWindow();
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mio/mailclient/Client.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mio/mailclient/Mailbox.fxml"));
         Parent root = loader.load();
+        MailboxController mailboxController = loader.getController();
+        User user = new User(username.getText(), mailbox);
+        mailboxController.setUser(user);
         Scene scene = new Scene(root);
         stage.setTitle("Il mio client");
         stage.setScene(scene);

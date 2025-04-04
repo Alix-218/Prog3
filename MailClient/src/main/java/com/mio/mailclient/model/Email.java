@@ -22,9 +22,6 @@ public class Email implements Serializable{
         this.topic = topic;
         this.text = text;
         this.sentDate = sentDate;
-
-
-
     }
 
     public Email() {
@@ -53,7 +50,7 @@ public class Email implements Serializable{
     }
 
     public LocalDateTime getSentDate() {
-        return sentDate;
+        return LocalDateTime.now();
     }
 
     public void setId(int id) {

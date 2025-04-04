@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.mio.mailclient.controller.MailboxController">
+
+    <center>
+        <ListView fx:id="emailListView" onMouseClicked="#handleEmailClick"
+                  style="-fx-border-color: lightgray; -fx-border-width: 1px;">
+        </ListView>
+    </center>
+
+    <bottom>
+        <VBox spacing="10">
+            <!-- Dettagli Email -->
+            <HBox spacing="10" alignment="CENTER_LEFT">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Label text="Mittente:"/>
+                <Label fx:id="senderLabel"/>
+                <Label text="Oggetto:"/>
+                <Label fx:id="subjectLabel"/>
+            </HBox>
+
+            <!-- Bottoni -->
+            <HBox spacing="10" alignment="CENTER">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+                <Button text="Scrivi mail" fx:id="newMailButton" onAction="#handleNewMail"/>
+                <Button text="Rispondi" fx:id="replyButton" onAction="#handleReply"/>
+                <Button text="Dettaglio" fx:id="detailButton" onAction="#handleDetail"/>
+                <Button text="Rispondi a tutti" fx:id="replyAllButton" onAction="#handleReplyAll"/>
+                <Button text="Elimina" fx:id="deleteButton" onAction="#handleDelete"
+                        style="-fx-background-color: red; -fx-text-fill: white;"/>
+            </HBox>
+        </VBox>
+    </bottom>
+
+</BorderPane>
