@@ -1,6 +1,5 @@
 package com.mio.mailclient;
 
-import com.mio.mailclient.controller.LoginController;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
@@ -14,7 +13,9 @@ public class ClientApplication extends Application {
         Scene scene = new Scene(loader.load());
         stage.setTitle("Il mio client");
         stage.setScene(scene);
-        //stage.setOnCloseRequest();
+        stage.setOnCloseRequest(windowEvent -> {
+            System.out.println("chiusura");
+        });
 
         stage.show();
 

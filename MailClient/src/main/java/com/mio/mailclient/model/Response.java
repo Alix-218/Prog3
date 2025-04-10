@@ -6,13 +6,15 @@ import java.util.ArrayList;
 public class Response implements Serializable {
 
     private String message;
-    private ArrayList<Email> mailBox;
+    private ArrayList<Email> mailbox;
     private Email email;
+    private boolean newMails;
 
-    public Response(ArrayList<Email> mailBox, String message, Email email) {
-        this.mailBox = mailBox;
+    public Response(ArrayList<Email> mailbox, String message, Email email, boolean newMails) {
+        this.mailbox = mailbox;
         this.message = message;
         this.email =email;
+        this.newMails = newMails;
     }
 
     public String getMessage() {
@@ -23,11 +25,19 @@ public class Response implements Serializable {
         this.message = message;
     }
 
-    public ArrayList<Email> getMailBox() {
-        return mailBox;
+    public ArrayList<Email> getMailbox() {
+        return mailbox;
     }
 
-    public void setMailBox(ArrayList<Email> mailBox) {
-        this.mailBox = mailBox;
+    public void setMailbox(ArrayList<Email> mailbox) {
+        this.mailbox = mailbox;
     }
+
+    public boolean hasNewMails(){return newMails;}
+
+    public void setNewMails(boolean newMails){
+        this.newMails = newMails;
+    }
+
+
 }

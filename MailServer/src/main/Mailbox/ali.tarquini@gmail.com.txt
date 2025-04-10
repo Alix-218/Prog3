@@ -1,1 +1,8 @@
 1, giorgio@mia.mail.com, ali.tarquini@gmail.com, , , 2025-04-04T00:14:16.912899
+2, giorgio@mia.mail.com, ali.tarquini@gmail.com, Daiaiaiaia, fafffffffff, 2025-04-10T22:20:44.394588
+3, giorgio@mia.mail.com, ali.tarquini@gmail.com, Ti preogggggogo, rr, 2025-04-10T22:26:00.460149
+4, giorgio@mia.mail.com, ali.tarquini@gmail.com, siiiii, ddi, 2025-04-10T22:33:25.466896
+5, giorgio@mia.mail.com, ali.tarquini@gmail.com, forse, forse, 2025-04-10T22:45:02.641076
+6, giorgio@mia.mail.com, ali.tarquini@gmail.com, non, lo so, 2025-04-10T22:52:28.179488
+7, giorgio@mia.mail.com, ali.tarquini@gmail.com, siiii, sss, 2025-04-10T23:00:31.791742
+8, server@mail.com, ali.tarquini@gmail.com, Errore nell'invio della mail, Indirizzo mail non valido: al.tarquini@gmail.com, 2025-04-10T23:01:25.606935

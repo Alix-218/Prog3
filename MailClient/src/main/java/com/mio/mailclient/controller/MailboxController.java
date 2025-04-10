@@ -5,8 +5,10 @@ import com.mio.mailclient.model.Request;
 import com.mio.mailclient.model.Response;
 import com.mio.mailclient.model.User;
 import com.mio.mailclient.utils.EmailCell;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -14,18 +16,20 @@ import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.ListView;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
+import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.Socket;
 import java.util.ArrayList;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.TimeUnit;
 
 public class MailboxController {
-    @FXML
-    private Button btnSendMail, replyButton, replyAllButton, deleteButton, detailButton, newMailButton;
-
     @FXML
     private ListView<Email> emailListView;
 
@@ -45,25 +49,30 @@ public class MailboxController {
     private ObservableList<Email> emailList = FXCollections.observableArrayList();
     private User user;
 
+    private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+
+
     public void setUser(User user){
         this.user=user;
     }
+
     @FXML
-    public void initialize() throws IOException, ClassNotFoundException {
+    public void init() {
         emailListView.getStylesheets().add(getClass().getResource("/css/style.css").toExternalForm());
         // Simuliamo l'arrivo di email
         getMailboxFromServer();
         emailListView.setItems(emailList);
         emailListView.setCellFactory(param -> new EmailCell());
+        startScheduler();
     }
 
-    public void getMailboxFromServer() throws IOException, ClassNotFoundException {
+    public void getMailboxFromServer() {
         new Thread(()->{
             createConnection();
             try {
-                objectWriter.writeObject(createRequest(user.getUsername() ,"MAILBOX"));
+                objectWriter.writeObject(createRequestForMailbox(user.getUsername() ,"MAILBOX"));
                 Response response = (Response)objectReader.readObject();
-                emailList.addAll(response.getMailBox());
+                emailList.addAll(response.getMailbox());
             } catch (IOException e) {
                 throw new RuntimeException(e);
             } catch (ClassNotFoundException e) {
@@ -71,6 +80,42 @@ public class MailboxController {
             }
 
         }).start();
+    }
+
+    public void startScheduler(){
+        scheduler.scheduleAtFixedRate(() -> {
+            try {
+                ArrayList<Email> temp = new ArrayList<>(emailListView.getItems());
+                Request request = createRequestForPollingMail(temp, "GET_NEW_MAILS", user.getUsername());
+                Response response = sendRequestToServer(request);
+
+                if (response.hasNewMails()) {
+                    // aggiorna la view della mailbox
+                    Platform.runLater(() -> {
+                            emailList.addAll(response.getMailbox());
+
+                    });
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }, 5, 5, TimeUnit.SECONDS); // primo polling subito, poi ogni 5 secondi
+    }
+
+
+
+    private Response sendRequestToServer(Request request) throws IOException, ClassNotFoundException {
+        createConnection();
+        Response response = null;
+        try{
+            objectWriter.writeObject(request);
+            response = (Response)objectReader.readObject();
+        }catch(EOFException e){
+            System.out.println(e.getMessage());
+        }
+        return response;
+
     }
 
     private void createConnection(){
@@ -83,14 +128,26 @@ public class MailboxController {
         }
     }
 
-
-
-    private static Request createRequest(String user, String operation){
-        return new Request(user, operation);
+    private static Request createRequestForMailbox(String user, String operation){
+        Request request = new Request();
+        request.setUser(user);
+        request.setOperation(operation);
+        return request;
+    }
+    private static Request createRequestForPollingMail(ArrayList<Email> mailbox, String operation, String user){
+        Request request = new Request();
+        request.setMailbox(mailbox);
+        request.setUser(user);
+        request.setOperation(operation);
+        return request;
     }
 
     private static Request createRequestForDelete(String user, int id, String operation){
-        return new Request(user, id, operation);
+        Request request = new Request();
+        request.setUser(user);
+        request.setId(id);
+        request.setOperation(operation);
+        return request;
     }
 
     @FXML
@@ -100,12 +157,17 @@ public class MailboxController {
 
 
     @FXML
-    public void handleEmailClick() {
-        Email selectedEmail = emailListView.getSelectionModel().getSelectedItem();
-        if (selectedEmail != null) {
-            senderLabel.setText(selectedEmail.getSender());
-            subjectLabel.setText(selectedEmail.getTopic());
+    public void handleEmailClick(MouseEvent e) throws IOException {
+        if(e.getClickCount()==2){
+            handleDetail();
+        }else {
+            Email selectedEmail = emailListView.getSelectionModel().getSelectedItem();
+            if (selectedEmail != null) {
+                senderLabel.setText(selectedEmail.getSender());
+                subjectLabel.setText(selectedEmail.getTopic());
+            }
         }
+
     }
 
     @FXML

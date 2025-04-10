@@ -11,6 +11,7 @@ import java.util.Arrays;
 
 public class FileManager {
 
+    //sincronizzare?
     public static ArrayList<Email> getMailbox(String sender) throws IOException {
         ArrayList<Email> mailbox = new ArrayList<>();
         FileReader file = new FileReader("MailServer/src/main/Mailbox/" + sender + ".txt");
@@ -24,7 +25,7 @@ public class FileManager {
                 email.setSender(fields[1]);
                 email.setRecipients(new ArrayList<String>(Arrays.asList(fields[2].split(";"))));
                 email.setTopic(fields[3]);
-                email.setText(fields[4]);
+                email.setText(fields[4].replace("\\n", "\n"));
                 email.setSentDate(LocalDateTime.parse(fields[5].trim()));
                 mailbox.add(email);
             }
@@ -33,36 +34,7 @@ public class FileManager {
         return mailbox;
     }
 
-    public static void removeFromMailbox(Email email, String sender) throws IOException {
-       ArrayList<Email> newMailbox = getMailbox(sender);
-       newMailbox.remove(email);
-       writeMailbox(newMailbox, sender);
-    }
-
-    public static Email readEmailFromMailbox(String sender, int id) throws IOException {
-        Email email = new Email();
-        FileReader file = new FileReader("MailServer/src/main/Mailbox/" + sender + ".txt");
-
-
-        try(BufferedReader reader = new BufferedReader(file)) {
-            String line = "";
-            while ((line = reader.readLine()) != null) {
-                String[] fields = line.split(",");
-                if(Integer.parseInt(fields[0])==id) {
-                    email.setId(Integer.parseInt(fields[0]));
-                    email.setSender(fields[1]);
-                    email.setRecipients(new ArrayList<String>(Arrays.asList(fields[2].split(";"))));
-                    email.setTopic(fields[3]);
-                    email.setText(fields[4]);
-                    email.setSentDate(LocalDateTime.parse(fields[5]));
-                }
-            }
-        }
-
-        return email;
-    }
-
-
+    //sincronizzare?
     public static void writeEmailToMailbox(Email email, String recipient) throws IOException {
         //Scrivo a ogni mailbox destinataria
 
@@ -73,7 +45,7 @@ public class FileManager {
                     email.getSender() + ", " +
                     String.join("; ", email.getRecipients()) + ", " +
                     email.getTopic() + ", " +
-                    email.getText() + ", " +
+                    email.getText().replace("\n","\\n") + ", " +
                     email.getSentDate();
             writer.write(dataEmail);
             writer.newLine();
@@ -82,6 +54,7 @@ public class FileManager {
 
     }
 
+    //uguale
     public static void writeMailbox(ArrayList<Email> mailbox, String user) throws IOException {
         FileWriter writeEmail = new FileWriter("MailServer/src/main/Mailbox/" + user + ".txt", false);
         try(BufferedWriter writer = new BufferedWriter(writeEmail)) {
@@ -90,7 +63,7 @@ public class FileManager {
                         email.getSender() + ", " +
                         String.join("; ", email.getRecipients()) + ", " +
                         email.getTopic() + ", " +
-                        email.getText() + ", " +
+                        email.getText().replace("\n","\\n") + ", " +
                         email.getSentDate();
                 writer.write(dataEmail);
                 writer.newLine();

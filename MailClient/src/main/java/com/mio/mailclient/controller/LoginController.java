@@ -5,6 +5,7 @@ import com.mio.mailclient.model.Request;
 
 import com.mio.mailclient.model.Response;
 import com.mio.mailclient.model.User;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -48,10 +49,10 @@ public class LoginController {
             Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
             objectWriter = new ObjectOutputStream(socket.getOutputStream());
             objectReader = new ObjectInputStream(socket.getInputStream());
-            objectWriter.writeObject(createRequest(email,"AUTH"));
+            objectWriter.writeObject(createRequestForLogin(email,"AUTH"));
             Response response = (Response)objectReader.readObject();
             if(response.getMessage().equals("OK")){
-                newStage(response.getMailBox());
+                newStage(response.getMailbox());
             }else{
                 messageError.setText("Utente inesistente");
                 messageError.setVisible(true);
@@ -71,23 +72,29 @@ public class LoginController {
         return matcher.matches();
     }
 
-    private static Request createRequest(String user, String operation){
-        return new Request(user, operation);
-
+    private static Request createRequestForLogin(String user, String operation){
+        Request request = new Request();
+        request.setUser(user);
+        request.setOperation(operation);
+        return request;
     }
 
     @FXML
-    private void newStage(ArrayList<Email> mailbox) throws IOException {
+    private void newStage(ArrayList<Email> mailbox) throws IOException, ClassNotFoundException {
         Stage stage = (Stage)btnLogin.getScene().getWindow();
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/mio/mailclient/Mailbox.fxml"));
         Parent root = loader.load();
         MailboxController mailboxController = loader.getController();
         User user = new User(username.getText(), mailbox);
         mailboxController.setUser(user);
+        mailboxController.init();
         Scene scene = new Scene(root);
         stage.setTitle("Il mio client");
         stage.setScene(scene);
-        //stage.setOnCloseRequest();
+        stage.setOnCloseRequest(windowEvent -> {
+            Platform.exit();
+            System.exit(0);
+        });
         stage.show();
 
     }

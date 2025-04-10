@@ -22,11 +22,12 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.net.SocketException;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Set;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.TimeUnit;
+import java.util.stream.Collectors;
 
 import static com.mio.mailserver.model.FileManager.*;
 import static com.mio.mailserver.model.FileManager.getMailbox;
@@ -127,8 +128,8 @@ public class ServerController {
                 switch(request.getOperation()){
                     case "AUTH":
                         try {
-                            server.writeLog("[INFO] Richiesta di autenticazione da : " + request.getSender() + "\n");
-                            objectWriter.writeObject(authenticate(request.getSender()));
+                            server.writeLog("[INFO] Richiesta di autenticazione da : " + request.getUser() + "\n");
+                            objectWriter.writeObject(authenticate(request.getUser()));
                             server.writeLog("[INFO] Risposta inviata\n");
                         } catch (IOException e) {
                             throw new RuntimeException(e);
@@ -136,8 +137,8 @@ public class ServerController {
                         break;
                     case "MAILBOX":
                         try {
-                            server.writeLog("[INFO] Richiesta di mailbox da : " + request.getSender() + "\n");
-                            objectWriter.writeObject(sendMailbox(request.getSender()));
+                            server.writeLog("[INFO] Richiesta di mailbox da : " + request.getUser() + "\n");
+                            objectWriter.writeObject(sendMailbox(request.getUser()));
                             server.writeLog("[INFO] Risposta inviata \n");
                         } catch (IOException e) {
                             throw new RuntimeException(e);
@@ -154,8 +155,18 @@ public class ServerController {
                         break;
                     case "DELETE":
                         try {
-                            server.writeLog("[INFO] Richiesta di eliminazione mail : " + request.getId()+ " dal client : " +request.getSender()+ "\n");
-                            objectWriter.writeObject(deleteEmail(request.getSender(), request.getId()));
+                            server.writeLog("[INFO] Richiesta di eliminazione mail : " + request.getId()+ " dal client : " +request.getUser()+ "\n");
+                            objectWriter.writeObject(deleteEmail(request.getUser(), request.getId()));
+                            server.writeLog("[INFO] Risposta inviata \n");
+                        } catch (IOException e) {
+                            server.writeLog("[ERROR]\n");
+                            throw new RuntimeException(e);
+                        }
+                        break;
+                    case "GET_NEW_MAILS" :
+                        try {
+                            server.writeLog("[INFO] Richiesta di nuove mail dal client :  " +request.getUser()+ "\n");
+                            objectWriter.writeObject(getNewMails(request.getMailbox(), request.getUser()));
                             server.writeLog("[INFO] Risposta inviata \n");
                         } catch (IOException e) {
                             server.writeLog("[ERROR]\n");
@@ -178,11 +189,20 @@ public class ServerController {
 
         }
 
+        private static Response getNewMails(ArrayList<Email> oldMailbox, String user) throws IOException{
+            ArrayList<Email> newMailbox = getMailbox(user);
+            Set<Integer> idArray = oldMailbox.stream().map(Email::getId).collect(Collectors.toSet());
+            ArrayList<Email> filtered = newMailbox.stream().filter(email -> !idArray.contains(email.getId())).collect(Collectors.toCollection(ArrayList::new));
+            return new Response(filtered, "No", null, !filtered.isEmpty());
+        }
+
+
+
         private static Response deleteEmail(String user, int id) throws IOException{
             ArrayList<Email> mailbox = getMailbox(user);
             mailbox.removeIf(email -> email.getId() == id);
             writeMailbox(mailbox, user);
-            return new Response(null, "OK", null);
+            return new Response(null, "OK", null, false);
 
         }
 
@@ -190,14 +210,16 @@ public class ServerController {
             ArrayList<String> recipients = email.getRecipients();
             for(String recipient : recipients){
                 if(emailExists(recipient)){
-                    email.setId(getMailbox(recipient).size()+1);
+                    Set<Integer> idArray = getMailbox(recipient).stream().map(Email::getId).collect(Collectors.toSet());
+                    email.setId(Collections.max(idArray)+1);
                     writeEmailToMailbox(email, recipient);
                 }else{
-                    email.setId(getMailbox(email.getSender()).size()+1);
+                    Set<Integer> idArray = getMailbox(email.getSender()).stream().map(Email::getId).collect(Collectors.toSet());
+                    email.setId(Collections.max(idArray)+1);
                     writeEmailToMailbox(createErrorMail(email, recipient), email.getSender());
                 }
             }
-            return new Response(null, "OK", null);
+            return new Response(null, "OK", null, false);
         }
 
         private static Email createErrorMail(Email email, String oldRecipient){
@@ -214,15 +236,15 @@ public class ServerController {
         }
 
         private static Response sendMailbox(String sender) throws IOException {
-            return new Response(getMailbox(sender), null, null);
+            return new Response(getMailbox(sender), null, null, false);
 
         }
 
         private static Response authenticate(String sender) throws IOException {
             if (emailExists(sender)) {
-                return new Response(getMailbox(sender),"OK", null);
+                return new Response(getMailbox(sender),"OK", null, false);
             } else {
-                return new Response(null,"KO", null);
+                return new Response(null,"KO", null, false);
             }
         }
 

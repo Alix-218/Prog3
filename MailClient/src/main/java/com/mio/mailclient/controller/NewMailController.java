@@ -2,19 +2,14 @@ package com.mio.mailclient.controller;
 
 import com.mio.mailclient.model.Email;
 import com.mio.mailclient.model.Request;
-import com.mio.mailclient.model.Response;
 import com.mio.mailclient.model.User;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-import java.io.EOFException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -112,7 +107,7 @@ public class NewMailController {
         if(valid){
             Socket socket = new Socket(SERVER_ADDRESS, SERVER_PORT);
             objectWriter = new ObjectOutputStream(socket.getOutputStream());
-            objectWriter.writeObject(createRequest(email, "SEND"));
+            objectWriter.writeObject(createRequestForSend(email, "SEND"));
             closeWindow();
 
         }
@@ -125,8 +120,11 @@ public class NewMailController {
     }
 
 
-    private static Request createRequest(Email email, String operation){
-        return new Request(email, operation);
+    private static Request createRequestForSend(Email email, String operation){
+        Request request = new Request();
+        request.setEmail(email);
+        request.setOperation(operation);
+        return request;
 
     }
 
